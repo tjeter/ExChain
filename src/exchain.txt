@@ -1,0 +1,39 @@
+Execute the following non-commented code in the truffle console
+to test the smart contract
+
+truffle console >| console.txt
+
+//Creating a database for account 1
+let exchain = await Exchain.deployed()
+let accounts = await web3.eth.getAccounts()
+
+exchain.createDB("Database 1", accounts[1], {from: accounts[1]})
+
+exchain.createDB("Database 1", accounts[1], {from: accounts[0]})
+exchain.getPastEvents("NewDatabaseCreated") 
+const uid_1 = web3.utils.toBN('1916226981377598225818401346406355797619301852784021907813088762021263790791');
+
+//Showing account 2 cannot read Database 1 because it does not have a db of its own
+exchain.readDB(uid_1, {from: accounts[2]})
+
+//Showing account 1 can read and edit its own data
+exchain.readDB(uid_1, {from: accounts[1]})
+exchain.getPastEvents("DatabaseRead") 
+
+let exampleDBData = "Grades-\n\nAlice: 93\nBob: 87\nCharlie: 79"
+exchain.writeDB(exampleDBData, {from: accounts[1]})
+exchain.getPastEvents("DatabaseUpdated")
+
+//Showing account 2 is now allowed to read account1 data bc it owns a database
+exchain.createDB("Database 2", accounts[2], {from: accounts[0]})
+exchain.getPastEvents("NewDatabaseCreated")
+const uid_2 = web3.utils.toBN('49844171400339760096023001691183441541866923126243543143574375593897598742208');
+
+exchain.readDB(uid_1, {from: accounts[2]})
+exchain.getPastEvents("DatabaseRead")
+
+//deleting database 2, which cannot read db 1 info
+exchain.deleteDB(uid_2, {from: accounts[0]})
+exchain.getPastEvents("DatabaseDeleted")
+
+exchain.readDB(uid_1, {from: accounts[2]})

@@ -1,0 +1,67 @@
+
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+
+
+Starting migrations...
+======================
+> Network name:    'ganache'
+> Network id:      5777
+> Block gas limit: 6721975 (0x6691b7)
+
+
+1_initial_migration.js
+======================
+
+   Replacing 'Migrations'
+   ----------------------
+   > transaction hash:    0xe0bfbbd6deaf5dcaa61ba817579fc1a2b720d93c760e5c3dea7e7a2c39058518
+   > Blocks: 0            Seconds: 0
+   > contract address:    0xcc167E5779788F061cd9f37A96a6D3332fd68Ca5
+   > block number:        1
+   > block timestamp:     1650921141
+   > account:             0x92E0c7e551Ab664B26602c45416678fE39DE601E
+   > balance:             99.99586798
+   > gas used:            206601 (0x32709)
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.00413202 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.00413202 ETH
+
+
+2_deploy_contracts.js
+=====================
+
+   Replacing 'Exchain'
+   -------------------
+   > transaction hash:    0x4c9bc17de25b2827cc59032286eb22f40c032729fc142544113a5d379ae8254f
+   > Blocks: 0            Seconds: 0
+   > contract address:    0xEED6D95424A5DA1197D01678DD403E2A1E89165d
+   > block number:        3
+   > block timestamp:     1650921144
+   > account:             0x92E0c7e551Ab664B26602c45416678fE39DE601E
+   > balance:             99.94219286
+   > gas used:            2641401 (0x284df9)
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.05282802 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.05282802 ETH
+
+Summary
+=======
+> Total deployments:   2
+> Final cost:          0.05696004 ETH
+
+
